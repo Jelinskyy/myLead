@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->integer('value');
+            $table->unsignedInteger('value');
             $table->timestamps();
         });
     }
