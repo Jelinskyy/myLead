@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +15,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/test', function () {
-    dd(Auth::user()->email);
-});
+Route::get('/', [ProductController::class, 'index']);
 
 Auth::routes(['reset' => false, 'confirm'=>false]);

@@ -9,11 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class LoginTest extends TestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+    
     public function test_login_form_responding()
     {
         $response = $this->get('/login');
