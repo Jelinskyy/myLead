@@ -19,7 +19,7 @@ class ProductTest extends TestCase
         $response->assertViewIs('product.index');
     }
 
-    public function test_view_listing_every_product_and_price()
+    public function test_view_listing_every_product_with_prices()
     {
         $products = Product::all();
         $arr = [];

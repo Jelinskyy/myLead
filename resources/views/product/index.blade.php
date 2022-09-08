@@ -39,6 +39,7 @@
                                                 @method('DELETE')
                                                 <input type="submit" class="btn btn-danger float-end mx-1 my-2" value="Delete">
                                             </form>
+                                            <a href="{{ route('price.create', ['product' => $product]) }}" class="btn btn-success float-end mx-1 my-2">Add price</a>
                                             <a href="{{ route('product.edit', ['product' => $product]) }}" class="btn btn-success float-end mx-1 my-2">Edit</a>
                                         </div>
                                     </div>
@@ -50,7 +51,19 @@
                                         <div class="h5">Prices:</div>
                                         <ul class="list-group list-group-flush">
                                             @foreach($product->prices as $price)
-                                            <li class="list-group-item bg-transparent">{{ $price->value }}$</li>
+                                            <li class="list-group-item bg-transparent d-flex align-items-center justify-content-between">
+                                                {{ $price->value }}$
+                                                @auth
+                                                <div class="d-flex">
+                                                    <a href="{{ route('price.edit', ['price' => $price]) }}" class="btn btn-success mx-1 my-2">Edit</a>
+                                                    <form method="POST" action="{{ route('price.destroy', ['price' => $price]) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <input type="submit" class="btn btn-danger float-end mx-1 my-2" value="Delete">
+                                                    </form>
+                                                </div>
+                                                @endauth
+                                            </li>
                                             @endforeach
                                         </ul>
                                     </div>
