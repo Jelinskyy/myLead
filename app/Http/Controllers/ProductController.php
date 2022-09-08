@@ -12,9 +12,19 @@ class ProductController extends Controller
     }
 
     public function index(){
-        $products = Product::all();
+        $products = Product::filter(request(['search']));
+        switch(request('order')){
+            case '2':{
+                $products->orderBy('name');
+                break;
+            }
+            case '3':{
+                $products->orderByDesc('name');
+                break;
+            }
+        }
 
-        return view('product.index', ['products' => $products]);
+        return view('product.index', ['products' => $products->get()]);
     }
 
     public function create(){

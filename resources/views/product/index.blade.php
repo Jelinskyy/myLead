@@ -9,6 +9,17 @@
                     <div class="me-auto h5 d-flex align-items-center m-0">
                         Products
                     </div>
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex">
+                        <div class="input-group">
+                            <select class="form-select" name="order" aria-label="Default select example">
+                                <option value="1" {{ (request("order") == '1' ? "selected":"") }}>default</option>
+                                <option value="2" {{ (request("order") == '2' ? "selected":"") }}>by name ascend</option>
+                                <option value="3" {{ (request("order") == '3' ? "selected":"") }}>by name descend</option>
+                            </select>
+                            <input type="search" name="search" class="form-control" placeholder="Search..." value="{{request("search") ?? ""}}" aria-label="Search">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                     @auth
                     <div>
                         <a href="{{ route('product.create') }}" class="btn btn-success">Add Product</a>
