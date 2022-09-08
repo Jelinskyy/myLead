@@ -9,6 +9,7 @@ Zadanie rekrutacyjne na stanowisko Backend Developer (Laravel)
 2. zainstaluj zależności
 ```bash
     composer install
+    npm run build
 ```
 3. Skonfiguruj plik .env
 ```bash
@@ -30,4 +31,13 @@ Zadanie rekrutacyjne na stanowisko Backend Developer (Laravel)
 8. Uruchom server localhost
 ```bash
 	php artisan serve
+```
+## Testowanie
+Uruchomienie testów jednostkowych
+```bash
+	php artisan test
+```
+Zasiew bazy danych w produkty
+```bash
+	php artisan db:seed ProductTableSeeder
 ```
